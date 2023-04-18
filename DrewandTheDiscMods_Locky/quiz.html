@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Locky</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Poppins:wght@500&display=swap" rel="stylesheet">
+</head>
+  
+<body class="coloredbackground">
+    
+<!--
+    question 1 - injury insurance
+    question 2 - travel insurance
+    question 3 - financial insurance
+    question 4 - health/basic
+    question 5 - injury and travel (speciifc to extreme injury)
+--> 
+
+<!--Q1-->
+<section class="question_container">
+  <div class="question_header">
+    <p1 class="grey">Question 1 of 5</p1>
+    <h3>Q1. What is your dream vacation?</h3>
+  </div>
+  <div class="question_choices">
+    <input type="radio" name="question1" id="correct1"><label>Workout Grid!</label>
+    <input type="radio" name="question1" id="correct2"><label>Roadtrip with friends! </label>
+    <input type="radio" name="question1" id="correct3"><label>Shopping spree!</label>
+    <input type="radio" name="question1" id="correct4"><label>Staying at home!</label>
+    <input type="radio" name="question1" id="correct5"><label>Hiking and climbing trip!</label>
+  </div>
+</section>
+
+<!--Q2-->
+<section class="question_container">
+    <div class="question_header">
+        <p1 class="grey">Question 2 of 5</p1>
+        <h3>Q2. Where do you see yourself in 10 years?</h3>
+    </div>
+    <div class="question_choices">
+        <input type="radio" name="question2" id="correct11"><label>A professional athlete!</label>
+        <input type="radio" name="question2" id="correct22"><label>On the road, no one place can contain me!</label>
+        <input type="radio" name="question2" id="correct33"><label>Living my best life, big house, fancy cars, the works.</label>
+        <input type="radio" name="question2" id="correct44"><label>Not quite sure, the world is an...oyster?</label>
+        <input type="radio" name="question2" id="correct55"><label>Out and about! Nature is my calling.</label>
+    </div>
+</section>
+
+<!--Q3-->
+<section class="question_container">
+    <div class="question_header">
+        <p1 class="grey">Question 2 of 5</p1>
+        <h3>Q3. Dream home?<br></h3>
+    </div>
+    <div class="question_choices">
+        <input type="radio" name="question3" id="correct111"><label>Somewhere next to a gym, or a place with a gym. Can't go a day without working out.</label>
+        <input type="radio" name="question3" id="correct222"><label>I don't call any one place home, the world itself, is my home.</label>
+        <input type="radio" name="question3" id="correct333"><label>Luxurious 5-bedroom house in the suburbs!</label>
+        <input type="radio" name="question3" id="correct444"><label>simple, yet homey.</label>
+        <input type="radio" name="question3" id="correct555"><label>Out in the wilderness!</label>
+    </div>
+</section>
+
+<!--Q4-->
+<section class="question_container">
+    <div class="question_header">
+      <p1 class="grey">Question 4 of 5</p1>
+      <h3>Q4. What best describes you?</h3>
+    </div>
+    <div class="question_choices">
+        <input type="radio" name="question4" id="correct1111"><label>A gym rat; my friends know me for my muscle.</label>
+        <input type="radio" name="question4" id="correct2222"><label>I can't sit still, the outside world is calling for me.</label>
+        <input type="radio" name="question4" id="correct3333"><label>I'm constantly on my phone windowshopping...is this...an addiction?</label>
+        <input type="radio" name="question4" id="correct4444"><label>Simple, yet complex in my own ways. I don't like stuffing myself into a mold.</label>
+        <input type="radio" name="question4" id="correct5555"><label>Nature-lover. I can't stand watching our world suffer.</label>
+    </div>
+</section>
+
+<!--Q5-->
+<section class="question_container">
+    <div class="question_header">
+      <p1 class="grey">Question 5 of 5</p1>
+      <h3>Q5. Sporty? Health nut?</h3>
+    </div>
+    <div class="question_choices">
+        <input type="radio" name="question5" id="correct11111"><label>Yes, duh. Gotta make sure not to get injured before the big game, though.</label>
+        <input type="radio" name="question5" id="correct22222"><label>Sometimes, but I prefer long walks in the city.</label>
+        <input type="radio" name="question5" id="correct33333"><label>Does walking in the mall count? </label>
+        <input type="radio" name="question5" id="correct44444"><label>Average. As average as it gets. </label>
+        <input type="radio" name="question5" id="correct55555"><label>Yeah, but I like to stick to the organic stuff.</label>
+    </div>
+</section>
+<!--
+    variables for each "archetype" are stored in score1-5, and answering a question under that archetype adds score to one of five 
+    archetypes. scores are totaled and the highest score is the archetype of the user.
+
+    to break ties, a heirarchy was set based on the specificity of each type of insurance, with health
+    being the least specific, most general type
+-->
+
+<input type="submit" name="submit" value="Submit" onClick="result()">
+<script type="text/javascript">
+function result()
+{
+    var score1=0;
+    var score2=0;
+    var score3=0;
+    var score4=0;
+    var score5=0;
+
+    if(document.getElementById('correct1').checked)
+        {    score1++;
+        }
+    if(document.getElementById('correct2').checked)
+        {    score2++;
+        }
+    if(document.getElementById('correct3').checked)
+        {    score3++;
+        }
+    if(document.getElementById('correct4').checked)
+        {    score4++;
+        }
+    if(document.getElementById('correct5').checked)
+        {    score5++;
+        }
+
+    if(document.getElementById('correct11').checked)
+    {    score1++;
+    }
+    if(document.getElementById('correct22').checked)
+        {    score2++;
+        }
+    if(document.getElementById('correct33').checked)
+        {    score3++;
+        }
+    if(document.getElementById('correct44').checked)
+        {    score4++;
+        }
+    if(document.getElementById('correct55').checked)
+        {    score5++;
+        } 
+
+        if(document.getElementById('correct111').checked)
+    {    score1++;
+    }
+    if(document.getElementById('correct222').checked)
+        {    score2++;
+        }
+    if(document.getElementById('correct333').checked)
+        {    score3++;
+        }
+    if(document.getElementById('correct444').checked)
+        {    score4++;
+        }
+    if(document.getElementById('correct555').checked)
+        {    score5++;
+        } 
+
+        if(document.getElementById('correct1111').checked)
+    {    score1++;
+    }
+    if(document.getElementById('correct2222').checked)
+        {    score2++;
+        }
+    if(document.getElementById('correct3333').checked)
+        {    score3++;
+        }
+    if(document.getElementById('correct4444').checked)
+        {    score4++;
+        }
+    if(document.getElementById('correct5555').checked)
+        {    score5++;
+        }
+
+    if(document.getElementById('correct11111').checked)
+    {    score1++;
+    }
+    if(document.getElementById('correct22222').checked)
+        {    score2++;
+        }
+    if(document.getElementById('correct33333').checked)
+        {    score3++;
+        }
+    if(document.getElementById('correct44444').checked)
+        {    score4++;
+        }
+    if(document.getElementById('correct55555').checked)
+        {    score5++;
+        }
+
+ if (score5 > score4 &&	
+    score5 > score3 &&	
+    score5 > score2 &&	
+    score5 > score1) 
+    {
+        window.location.href = 'archetype5.html';
+}
+
+if (score4 > score5 &&	
+    score4 > score3 &&	
+    score4 > score2 &&	
+    score4 > score1) 
+    {
+        window.location.href = 'archetype4.html';
+}
+
+if (score3 > score5 &&	
+    score3 > score4 &&	
+    score3 > score2 &&	
+    score3 > score1) 
+    {
+        window.location.href = 'archetype3.html';
+}
+
+if (score2 > score5 &&	
+    score2 > score3 &&	
+    score2 > score4 &&	
+    score2 > score1) 
+    {
+        window.location.href = 'archetype2.html';
+}
+
+if (score1 > score5 &&	
+    score1 > score3 &&	
+    score1 > score2 &&	
+    score1 > score4) 
+    {
+        window.location.href = 'archetype1.html';
+}
+
+}
+
+</script>
+</style>
+</body>
+</html>
+
